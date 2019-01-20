@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "next start -p 8000",
     "dev": "node server.js",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,8 @@
     "next": "^7.0.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
   }
 }
