@@ -6,7 +6,8 @@
   "scripts": {
     "start": "next start -p 8000",
     "dev": "node server.js",
-    "build": "next build && next export"
+    "build": "next build",
+    "static": "npm run build && next export"
   },
   "keywords": [],
   "author": "",
