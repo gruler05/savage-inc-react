@@ -1,9 +1,9 @@
-import Layout from "../components/Layout";
+import Page from "../components/Page";
 
 const About = () => (
-  <Layout>
+  <Page>
       <p>This is about page</p>
-  </Layout>
+  </Page>
 )
 
 export default About;
