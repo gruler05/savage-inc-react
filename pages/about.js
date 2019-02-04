@@ -1,9 +1,9 @@
-import Page from "../components/Page";
+
 
 const About = () => (
-  <Page>
+  <div>
       <p>This is about page</p>
-  </Page>
+  </div>
 )
 
 export default About;

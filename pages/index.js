@@ -1,14 +1,12 @@
-import Page from "../components/Page";
-import Link from "next/link";
-import fetch from 'isomorphic-unfetch';
+
 
 const Index = (props) => (
-  <Page>
-    <h1>Batman TV Shows</h1>
+  <div>
+    <h1>Savage Inc</h1>
     <ul>
      
     </ul>
-  </Page>
+  </div>
 );
 
 export default Index;
