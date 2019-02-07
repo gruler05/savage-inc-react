@@ -3,9 +3,9 @@ import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
 import {CURRENT_USER_QUERY} from "./User";
 
-const SIGNUP_MUTATION = gql `
-  mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
-    signup(email: $email, name: $name, password: $password) {
+const SIGNIN_MUTATION = gql `
+  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
+    signin(email: $email, password: $password) {
       id
       email
       name
@@ -13,10 +13,9 @@ const SIGNUP_MUTATION = gql `
   }
 `;
 
-export default class Signup extends Component {
+export default class Signin extends Component {
     state = {
         email: '',
-        name: '',
         password: '',
     };
     saveToState = (e) => {
@@ -26,18 +25,17 @@ export default class Signup extends Component {
     }
   render() {
     return (
-        <Mutation mutation={SIGNUP_MUTATION} variables={this.state} refetchQueries={[{ query: CURRENT_USER_QUERY}]}>
+        <Mutation mutation={SIGNIN_MUTATION} variables={this.state} refetchQueries={[{ query: CURRENT_USER_QUERY}]}>
         {
-            (signup, { error, loading }) => (
+            (signin, { error, loading }) => (
                 <form method="post" onSubmit={async (e) => {
                     event.preventDefault();
-                    const res = await signup();
-                    this.setState({ email: '', name: '', password: '' })
+                    const res = await signin();
+                    this.setState({ email: '', password: '' })
                 }}>
                 <fieldset disabled={loading} aria-busy={loading}>
-                    <h2>Sign up account</h2>
+                    <h2>Sign in</h2>
                     <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.saveToState}/>
-                    <input type="name" name="name" placeholder="name" value={this.state.name} onChange={this.saveToState}/>
                     <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.saveToState}/>
                     <input type="submit" value="Submit" />
                 </fieldset>
